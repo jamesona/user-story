@@ -87,8 +87,11 @@ const registerInputs = inputs => inputs.reduce((obj, name) => {
 		const { value } = target
 		const { id } = element
 		placeholder.innerHTML = value
-		element.removeChild(target)
-		element.appendChild(placeholder)
+		
+		if (value) {
+			element.removeChild(target)
+			element.appendChild(placeholder)
+		}
 	})
 
 	placeholder.addEventListener('click', ({target}) => {
